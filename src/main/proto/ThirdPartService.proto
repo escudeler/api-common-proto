@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "SpeakService.proto";
+
+option java_multiple_files = true;
+option java_package = "escudeler.example.apithirdpart.grpc";
+
+/*
+	Authorize Response
+*/
+message AuthorizeResponse {
+  bool authorized = 1;
+}
+
+service ThirdPartGrpcService {
+  //Method for authorize to say hello to people
+  rpc authorize (SpeakRequest) returns (AuthorizeResponse);
+
+}
