@@ -5,23 +5,14 @@ import "google/protobuf/empty.proto";
 option java_multiple_files = true;
 option java_package = "escudeler.example.apispeak.grpc";
 
-/*
-  Speak Request peopleName.
-*/
-message SpeakRequest {
-  string peopleName = 1;
+message PersonRequest {
+  string personName = 1;
 }
 
-/*
-	Hello Response
-*/
 message HelloResponse {
   string reply = 1;
 }
 
-/*
-	Goodbye Response with feedback
-*/
 message GoodbyeResponse {
   string reply = 1;
   bool like = 2;
@@ -29,13 +20,9 @@ message GoodbyeResponse {
 }
 
 service SpeakGrpcService {
-  //Method for send hello to people
-  rpc hello (SpeakRequest) returns (HelloResponse);
-  //Method for send goodbye with feedback to people
-  rpc goodbye (SpeakRequest) returns (GoodbyeResponse);
+  rpc hello (PersonRequest) returns (HelloResponse);
+  rpc goodbye (PersonRequest) returns (GoodbyeResponse);
 
-  //Method for keep names of strangers
-  rpc strangerPeople (SpeakRequest) returns (google.protobuf.Empty);
-  //Method for clear strangers names
+  rpc addStrangerPeople (PersonRequest) returns (google.protobuf.Empty);
   rpc cleanStranger (google.protobuf.Empty) returns (google.protobuf.Empty);
 }
