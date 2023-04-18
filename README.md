@@ -1,20 +1,30 @@
-# api-common-proto
+# Api Common Proto
 Common Protos for gRPC Demo
+
+## Projects list for gRPC example
+**Follow the respectives readmes for build and execute them in following list order:**
+```sh
+git clone https://github.com/escudeler/api-common-proto.git
+git clone https://github.com/escudeler/api-listen.git
+git clone https://github.com/escudeler/api-speak.git
+git clone https://github.com/escudeler/api-third-part.git
+```
 
 ## Prerequisites
 You have installed:
 
  - JDK 11
  - Maven
+ - protoc
 
 **Execute this commands on the project folder to generate grpc integration**
 
 ```sh
 In the folder where is pom.xml, execute:
-mvn eclipse:eclipse
+mvn clean package
 ```
 
-Add to your pom.xml dependencies, client and/or server grpc:
+ Reference using pom.xml dependencies:
 
 ```sh
 <dependency>
@@ -24,9 +34,7 @@ Add to your pom.xml dependencies, client and/or server grpc:
 </dependency>
 ```
 
-**Example for generate code (the protoc must be installed before)**
-
-**      Java code **
+**Example for manual generation code (the protoc must be installed before)**
 
 ```sh
 In the folder where is pom.xml create an "target" folder and execute:
